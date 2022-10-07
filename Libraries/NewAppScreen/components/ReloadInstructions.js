@@ -18,15 +18,23 @@ const styles = StyleSheet.create({
   },
 });
 
+function Foo() {
+  const [state, setState] = React.useState();
+  console.warn('hello from foo');
+  return <Text onPress={() => setState({})}>FOOOO</Text>;
+}
+
 const ReloadInstructions: () => Node = Platform.select({
   ios: () => (
     <Text>
+      <Foo />
       Press <Text style={styles.highlight}>Cmd + R</Text> in the simulator to
       reload your app's code.
     </Text>
   ),
   default: () => (
     <Text>
+      <Foo />
       Double tap <Text style={styles.highlight}>R</Text> on your keyboard to
       reload your app's code.
     </Text>
